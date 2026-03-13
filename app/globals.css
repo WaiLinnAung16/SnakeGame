@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 226 38% 5%;
+  --foreground: 210 40% 98%;
+  --card: 225 40% 9%;
+  --card-foreground: 210 40% 98%;
+  --primary: 188 95% 47%;
+  --primary-foreground: 220 28% 12%;
+  --secondary: 165 84% 42%;
+  --secondary-foreground: 220 28% 12%;
+  --muted: 220 20% 20%;
+  --muted-foreground: 215 20% 72%;
+  --accent: 83 85% 54%;
+  --accent-foreground: 220 28% 12%;
+  --border: 218 28% 24%;
+  --input: 218 28% 24%;
+  --ring: 188 95% 47%;
+  --radius: 0.8rem;
+}
+
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
