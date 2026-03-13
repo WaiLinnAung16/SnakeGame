@@ -18,9 +18,20 @@ import { cn } from "@/lib/utils";
 
 type Direction = "UP" | "DOWN" | "LEFT" | "RIGHT";
 type Cell = { x: number; y: number };
+type Difficulty = "EASY" | "NORMAL" | "HARD";
 
 const BOARD_SIZE = 18;
-const TICK_MS = 110;
+const difficultySpeed: Record<Difficulty, number> = {
+  EASY: 220,
+  NORMAL: 180,
+  HARD: 120
+};
+
+const difficultyLabel: Record<Difficulty, string> = {
+  EASY: "Easy",
+  NORMAL: "Normal",
+  HARD: "Hard"
+};
 
 const directions: Record<Direction, Cell> = {
   UP: { x: 0, y: -1 },
@@ -66,6 +77,7 @@ export function SnakeGame() {
   const [score, setScore] = useState(0);
   const [best, setBest] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+  const [difficulty, setDifficulty] = useState<Difficulty>("NORMAL");
 
   const snakeMap = useMemo(() => {
     const map = new Map<string, number>();
@@ -148,10 +160,10 @@ export function SnakeGame() {
 
         return moved;
       });
-    }, TICK_MS);
+    }, difficultySpeed[difficulty]);
 
     return () => clearInterval(interval);
-  }, [direction, food, gameOver, queuedDirection, running]);
+  }, [difficulty, direction, food, gameOver, queuedDirection, running]);
 
   const resetGame = () => {
     const freshSnake = initialSnake();
@@ -207,6 +219,26 @@ export function SnakeGame() {
               <RotateCcw size={16} />
               Restart
             </Button>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border/60 bg-background/25 px-3 py-3">
+          <p className="text-sm text-muted-foreground">Difficulty</p>
+          <div className="flex gap-2">
+            {(Object.keys(difficultySpeed) as Difficulty[]).map((level) => (
+              <Button
+                key={level}
+                size="sm"
+                variant={difficulty === level ? "default" : "outline"}
+                className={cn(
+                  "min-w-20",
+                  difficulty !== level && "border-white/15 bg-white/5 text-white"
+                )}
+                onClick={() => setDifficulty(level)}
+              >
+                {difficultyLabel[level]}
+              </Button>
+            ))}
           </div>
         </div>
 

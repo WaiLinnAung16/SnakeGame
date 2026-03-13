@@ -1,0 +1,119 @@
+[00:00:42.076] Server  LOG     ✓ Ready in 27s
+[00:00:45.306] Server  LOG     ○ Compiling / ...
+[00:01:07.563] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <SegmentViewNode type="page" pagePath="page.tsx">
+      <SegmentTrieNode>
+      <Home>
+        <main className="relative m...">
+          <div>
+          ...
+            <_c className="w-full max...">
+              <div ref={null} className="rounded-lg...">
+                <_c2>
+                <_c8 className="space-y-4">
+                  <div ref={null} className="p-6 pt-0 s...">
+                    <div>
+                    <div className="relative r...">
+                      <div className="grid gap-1" style={{...}}>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div>
+                        <motion.div layout={true} transition={{type:"spring", ...}} className="aspect-squ...">
+                          <MeasureLayout>
+                          <div className="aspect-squ..." style={{}} ref={function useMotionRef.useCallback}>
+                            <motion.div className="h-full w-f..." animate={{scale:[...]}} ...>
++                             <div
++                               className="h-full w-full rounded-[4px] bg-rose-300 shadow-[0_0_12px_rgba(253,164,175,0..."
++                               style={{}}
++                               ref={function useMotionRef.useCallback}
++                             >
+                        ...
+                    ...
+
+[00:02:26.302] Server  LOG     ✓ Compiled in 295ms
